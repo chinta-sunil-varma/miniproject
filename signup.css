@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave:ital,wght@1,300&family=Montserrat:wght@300&family=Oswald:wght@300&family=Roboto:ital,wght@1,300&family=Ubuntu:wght@300&display=swap');
+
+body
+{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://images.unsplash.com/photo-1470569584027-67bf7fa60807?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHN1bnJpc2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); 
+}
+.Sign-up-form
+{
+    width: 400px;
+    box-shadow: 0 0 3px  rgba(rgb(0,0,0,0.3));
+    background: rgba(255, 255, 255, 0.815);
+    /* border: black; */
+    padding: 20px;
+    margin: 8% auto 0;
+    text-align:center;
+    
+}
+.Sign-up-form h1
+{
+    color: blue;
+    margin-bottom: 30px ;
+}
+.input-box
+{
+ border-radius: 26px;
+ padding: 10px;
+ margin: 10px 0;
+ width:90%;
+ border: 1px solid #999;
+ outline: black;   
+ border: 1px solid chocolate;
+}
+button
+{
+    color: rgb(7, 6, 6);
+    width :100%;
+    padding: 10px ;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10pz 0;
+    border:none;
+    outline:none;
+    cursor: pointer;
+}
+.Signup-btn
+{
+    background-color: rgba(126, 126, 236, 0.842);
+}
+
+a
+{
+    text-decoration: line;
+}
+hr
+{
+   margin-top: 20px;
+   width:80%;
+}
+.or
+{
+  background: rgba(255, 255, 255, 0.815);
+  width: 30px;
+  margin: -19px auto 10px; /*text will come over line */
+ 
+}
+img{
+width: 70px;
+margin-top: -50px;
+}
+#para
+{
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#lastpara
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1
+{
+    font-family:  'Roboto', sans-serif;
+}
