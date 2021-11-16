@@ -7,7 +7,10 @@ body
     font-family: sans-serif;
     background-size: cover;
     background-position: center;
-    background-image: url(https://images.unsplash.com/photo-1470569584027-67bf7fa60807?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHN1bnJpc2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); 
+    background-image: url("https://images.unsplash.com/photo-1513628253939-010e64ac66cd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG5pZ2h0JTIwc2t5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+     /* background-color: black; */
+     background-size: auto;
+     
 }
 .Sign-up-form
 {
@@ -16,9 +19,11 @@ body
     background: rgba(255, 255, 255, 0.815);
     /* border: black; */
     padding: 20px;
-    margin: 8% auto 0;
+    margin: 8% auto ;
     text-align:center;
-    
+    border: 3px solid greenyellow;
+    /* opacity: 0.6; */
+    background-color: black;
 }
 .Sign-up-form h1
 {
@@ -33,11 +38,11 @@ body
  width:90%;
  border: 1px solid #999;
  outline: black;   
- border: 1px solid chocolate;
+ border: 2px solid greenyellow;
 }
 button
 {
-    color: rgb(7, 6, 6);
+    color: rgb(205, 230, 98);
     width :100%;
     padding: 10px ;
     border-radius: 20px;
@@ -49,7 +54,8 @@ button
 }
 .Signup-btn
 {
-    background-color: rgba(126, 126, 236, 0.842);
+    background-color: #495057;
+    border: 2px solid greenyellow;
 }
 
 a
@@ -76,12 +82,18 @@ margin-top: -50px;
 {
     display: inline-block;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: whitesmoke;
 }
 #lastpara
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: whitesmoke;
 }
 h1
 {
     font-family:  'Roboto', sans-serif;
+}
+button:active
+{
+    width: 95%;
 }
