@@ -1,4 +1,9 @@
+
+    
+
 <?php
+$a= $_POST;
+print_r($a);
   $email= $_POST['email'];
  $password= $_POST['password'];
 
@@ -12,10 +17,16 @@
     /*$stmt->blind_param("ss",$email,$password);
      $stmt->execute();*/
      if($stmt){
-
-
-     echo "registration succesfully  ";
+         $arr = array('sunil', 'varma');
+    $var="sunil";
+     echo 
+     '<img style="margin-left:auto, margin-right:auto" src="https://media.istockphoto.com/photos/thank-you-picture-id1306527304?b=1&k=20&m=1306527304&s=170667a&w=0&h=BpaD5aH7gsbQHvl-HM0q-rHqOcwKu6XwcUo5w7N92EM=" alt="">';
+     
+     
+       echo "  <p> hello my name is & $var  </p> <br>"; 
+     echo ('iam'. $arr[0]);
     
+     
     }
 
     else
@@ -24,5 +35,6 @@
     }
     //  $stmt->close();
      $conn->close();
- 
-?>
+  
+     ?>
+

@@ -8,7 +8,7 @@
     background-size: 100% ;
     background-repeat: no-repeat;
 
-    
+
 }
 
 .main
@@ -42,8 +42,8 @@ font-family: 'Oswald', sans-serif;
 {
     list-style-type: none;
     float: left;
-    
-    
+
+
 }
 #main
 {
@@ -51,9 +51,9 @@ font-family: 'Oswald', sans-serif;
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    
-    
-    
+
+
+
 }
 #navi li{
     display: inline-block;
@@ -126,11 +126,11 @@ h2::first-letter
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid whitesmoke;
-    
+    /* border: 2px solid whitesmoke; */
+
     background-image: url("https://images.unsplash.com/photo-1513569771920-c9e1d31714af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
-    
-    
+
+
 }
 #file
 {
@@ -167,13 +167,13 @@ h2::first-letter
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: whitesmoke;
     text-align: left;
-    
+
 }
 #end
 {
     color: whitesmoke;
      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: larger; 
+    font-size: larger;
 }
 #navi li a:hover
 {
@@ -183,4 +183,19 @@ h2::first-letter
 #button:hover
 {
     cursor: pointer;
+}
+ form .input #qwert
+{
+  cursor: pointer;
+  color: black;
+  font-size: 1.7em;
+  font-family: 'Dongle', sans-serif;
+
+}
+#yui
+{
+  font-size: 2.4em;
+  color: yellowgreen;
+  font-family: 'Dongle', sans-serifnt;
+  margin-bottom: none;
 }

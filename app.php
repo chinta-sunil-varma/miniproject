@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book-Storm</title>
 
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="app.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -22,12 +22,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
-      
+
 
 
 </head>
@@ -38,13 +38,13 @@
     </div>
     <nav id="naviga">
         <div id="main" >
-            
+
             <img id="image" src="https://img.icons8.com/external-icongeek26-flat-icongeek26/2x/external-book-physics-icongeek26-flat-icongeek26.png" alt="" height="50px" width="50px">
-            
+
             <ul id="navi">
-                     <li><a href="#">Home</a> </li>            
+                     <li><a href="#">Home</a> </li>
                      <li><a href="#">Social</a> </li>
-                     <li><a href="http://localhost/app/signup.php" target="_blank"> Signup</a></li>
+                     <li><a href="signup.php" target="_blank"> Signup</a></li>
                      <li><a href="#end"> About us</a></li>
             </ul>
             <a  href="#fileimg"><button id="button">upload</button></a>
@@ -73,12 +73,31 @@
         <br>
         <br>
         <h2>Upload your PDF</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
         <div class="input">
             <img id="fileimg" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/2x/external-file-home-office-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" alt="" height="90px" width="90px" style="padding: 2em 0;">
-            <input type="file" id="file" >
+
+            <input type="file" id="file" name="file1" >
             <label for="file" id="choose"><span class="material-icons">
                 book &nbsp;
                 </span> Choose File</label>
+                <button id="qwert" >SUBMIT</button>
+                <?php
+if(isset($_FILES['file1']))
+{
+
+    $temp = $_FILES['file1']['tmp_name'];
+    $temp2=$_FILES['file1']['name'];
+
+    if (move_uploaded_file($temp,'uploadeddoc/'.$temp2)) {
+      echo '<p id="yui"> succesful <p>';
+    }
+    else {
+      echo "unseccesful";
+    }
+}
+?>
+                </form>
 
         </div>
     </main>
@@ -87,18 +106,22 @@
     <br>
 
 
-    
-    
-    
+
+
+
 </body>
 <hr>
 <footer>
-    
+
         <h2 class="end">Contact us</h2>
         <address id="end">
             Chaitanya Bharati Institute of Technology <br>
             Gandipet-Hyderabad <br>
-            Telangana-500054
+            Telangana-500054 <br>
+            <?php
+            echo date('c');
+
+            ?>
             <br>
             <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="insta" height="32px" width="32px" style="padding: 0.4em;" usemap="#insta">
             <map name="insta">
@@ -114,7 +137,8 @@
             </map>
         </address>
 
-    
+
+
 </footer>
 
 </html>

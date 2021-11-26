@@ -15,7 +15,7 @@
         <input type="email" class="input-box" placeholder="Your Email" name="email">
         <input type="password" class="input-box" placeholder="Your Password" name="password">
         <p id="para"><span><input type="checkbox"></span>I agree to the terms of services</p>
-        <button type="submit" class="Signup-btn">Sign up</button>
+        <button type="submit" class="Signup-btn" name="butto">Sign up</button>
         <hr>
         <p class="or">OR</p>
         
