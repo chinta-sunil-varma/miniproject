@@ -77,38 +77,53 @@
         <div class="input">
             <img id="fileimg" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/2x/external-file-home-office-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" alt="" height="90px" width="90px" style="padding: 2em 0;">
 
-            <input type="file" id="file" name="file1" >
+            <input type="file" id="file" name="file1" accept=".pdf,.doc" >
             <label for="file" id="choose"><span class="material-icons">
                 book &nbsp;
                 </span> Choose File</label>
                 <button id="qwert" >SUBMIT</button>
-                <?php
+<?php
 if(isset($_FILES['file1']))
 {
 
+            // [name]
+            // [type]
+            // [tmp_name]
+            // [error]
+            // [size]
+
     $temp = $_FILES['file1']['tmp_name'];
     $temp2=$_FILES['file1']['name'];
+    $temp3="uploadeddoc/".$_FILES['file1']['name'];
+    echo "";
+    if (file_exists('uploadeddoc/'.$temp2))
+    {
+      echo '<p class="yui">file is already present </p>';
+    }
+elseif($_FILES['file1']['size']>2000 )
+ {
+  if (move_uploaded_file($temp,'uploadeddoc/'.$temp2)) {
 
-    if (move_uploaded_file($temp,'uploadeddoc/'.$temp2)) {
-      echo '<p id="yui"> succesful <p>';
-    }
-    else {
-      echo "unseccesful";
-    }
+    echo "<p class=\"yui\"><a id=\"linksuc\"  href=\" $temp3 \" target=\"_blank\"> sucessfull! click here to view file </a><p>";
+  }
+  else {
+    echo '<p class="yui"> unseccesful </p>';
+  }
 }
-?>
-                </form>
+else {
+  echo '<p class="yui"> not eligible bigger size try to commpress!</p>';
+}
 
-        </div>
+
+
+}
+
+?>  </form>
+  </div>
     </main>
     <br>
     <br>
     <br>
-
-
-
-
-
 </body>
 <hr>
 <footer>

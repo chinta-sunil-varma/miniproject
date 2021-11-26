@@ -192,10 +192,16 @@ h2::first-letter
   font-family: 'Dongle', sans-serif;
 
 }
-#yui
+.yui
 {
   font-size: 2.4em;
   color: yellowgreen;
   font-family: 'Dongle', sans-serifnt;
   margin-bottom: none;
+}
+#linksuc
+{
+  color: whitesmoke;
+  text-decoration: none;
+  
 }
