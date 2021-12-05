@@ -85,6 +85,10 @@
 <?php
 if(isset($_FILES['file1']))
 {
+  // echo "<pre>";
+  // print_r($_FILES);
+  // echo "</pre>";
+// echo print_r($_POST);
 
             // [name]
             // [type]
@@ -92,15 +96,16 @@ if(isset($_FILES['file1']))
             // [error]
             // [size]
 
+  
     $temp = $_FILES['file1']['tmp_name'];
     $temp2=$_FILES['file1']['name'];
     $temp3="uploadeddoc/".$_FILES['file1']['name'];
-    echo "";
+
     if (file_exists('uploadeddoc/'.$temp2))
     {
       echo '<p class="yui">file is already present </p>';
     }
-elseif($_FILES['file1']['size']>2000 )
+elseif($_FILES['file1']['size']<	15000000 )
  {
   if (move_uploaded_file($temp,'uploadeddoc/'.$temp2)) {
 
@@ -111,7 +116,7 @@ elseif($_FILES['file1']['size']>2000 )
   }
 }
 else {
-  echo '<p class="yui"> not eligible bigger size try to commpress!</p>';
+  echo '<p class="yui">File is above 15MB try to compress!</p>';
 }
 
 

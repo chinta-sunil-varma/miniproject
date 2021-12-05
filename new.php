@@ -1,9 +1,8 @@
 
-    
+
 
 <?php
-$a= $_POST;
-print_r($a);
+
   $email= $_POST['email'];
  $password= $_POST['password'];
 
@@ -12,21 +11,18 @@ print_r($a);
  {
      die('Connection Failed :'.$conn-> connect_error);
  }
- 
+
      $stmt= $conn->query("INSERT INTO registration(email,password) VALUES('$email','$password')");
-    /*$stmt->blind_param("ss",$email,$password);
-     $stmt->execute();*/
+
      if($stmt){
-         $arr = array('sunil', 'varma');
-    $var="sunil";
-     echo 
-     '<img style="margin-left:auto, margin-right:auto" src="https://media.istockphoto.com/photos/thank-you-picture-id1306527304?b=1&k=20&m=1306527304&s=170667a&w=0&h=BpaD5aH7gsbQHvl-HM0q-rHqOcwKu6XwcUo5w7N92EM=" alt="">';
-     
-     
-       echo "  <p> hello my name is & $var  </p> <br>"; 
-     echo ('iam'. $arr[0]);
-    
-     
+     echo "<div>";
+     echo
+     '<img style="display:block;margin:auto auto" src="https://creativehandles.com/uploads/images/thank-you-page-cover-photo_1615543701.jpg" alt="">';
+     echo "</div>";
+
+
+
+
     }
 
     else
@@ -35,6 +31,5 @@ print_r($a);
     }
     //  $stmt->close();
      $conn->close();
-  
-     ?>
 
+     ?>
