@@ -203,5 +203,19 @@ h2::first-letter
 {
   color: whitesmoke;
   text-decoration: none;
-  
+
+}
+#formi
+{
+  display: inline-block;
+
+}
+#formi button
+{
+  font-family:'Dongle', sans-serif ;
+  font-size: 101%;
+}
+#formi button:hover
+{
+  cursor: pointer;
 }

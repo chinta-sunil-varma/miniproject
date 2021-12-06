@@ -1,4 +1,22 @@
 
+<!-- creating a cookie of name mycookie -->
+<!-- <<?php
+setcookie('mycookie','sunil',time()+(3600),'/');
+
+
+ ?> -->
+<?php
+session_start();
+  ?>
+<?php
+if (isset($_POST['logout'])) {
+  session_unset();
+  session_destroy();
+  // print_r($_SESSION);
+}
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +64,9 @@
                      <li><a href="#">Social</a> </li>
                      <li><a href="signup.php" target="_blank"> Signup</a></li>
                      <li><a href="#end"> About us</a></li>
+                     <form id="formi"  action="" method="post">
+                       <li><button type="submit"  name="logout" value="1"> Log out</button></li>
+                     </form>
             </ul>
             <a  href="#fileimg"><button id="button">upload</button></a>
         </div>
@@ -85,6 +106,11 @@
 <?php
 if(isset($_FILES['file1']))
 {
+  // echo $_SESSION['activstat'];
+  // print_r($_SESSION);
+  if (isset( $_SESSION['activstat']))
+  {
+
   // echo "<pre>";
   // print_r($_FILES);
   // echo "</pre>";
@@ -96,7 +122,7 @@ if(isset($_FILES['file1']))
             // [error]
             // [size]
 
-  
+
     $temp = $_FILES['file1']['tmp_name'];
     $temp2=$_FILES['file1']['name'];
     $temp3="uploadeddoc/".$_FILES['file1']['name'];
@@ -112,15 +138,21 @@ elseif($_FILES['file1']['size']<	15000000 )
     echo "<p class=\"yui\"><a id=\"linksuc\"  href=\" $temp3 \" target=\"_blank\"> sucessfull! click here to view file </a><p>";
   }
   else {
-    echo '<p class="yui"> unseccesful </p>';
+    echo '<p class="yui"> unseccesful uploading please try again! </p>';
   }
 }
 else {
   echo '<p class="yui">File is above 15MB try to compress!</p>';
 }
 
+// echo $_COOKIE['mycookie'];
 
 
+
+}
+else {
+  echo '<p class="yui"> <a href="signin.php" target="_blank" style="color:whitesmoke">login</a> to proceed </p>';
+}
 }
 
 ?>  </form>

@@ -2,7 +2,7 @@
 
 
 
-
+<?php session_start();  ?>
 
 
 <!DOCTYPE html>
@@ -54,10 +54,15 @@
 
 
             }
-            if ($count==1)
+            if ($count==1){
             echo "you can login";
+
+             if ($_SESSION['activstat']='activated') {
+               
+             }
+          }
             else {
-              echo " <span id=\"nxtline\"> <br>you cannot login</span>";
+              echo " <span id=\"nxtline\"> <br>Password or username is incorrect </span>";
             }
 
 
@@ -65,7 +70,7 @@
             }
             namechecker();
           }}
-          
+
         ?>
         </p>
 
