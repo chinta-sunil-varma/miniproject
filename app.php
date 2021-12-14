@@ -61,11 +61,11 @@ if (isset($_POST['logout'])) {
 
             <ul id="navi">
                      <li><a href="#">Home</a> </li>
-                     <li><a href="#">Social</a> </li>
+                     <li><a   href="#">Social</a> </li>
                      <li><a href="signup.php" target="_blank"> Signup</a></li>
                      <li><a href="#end"> About us</a></li>
                      <form id="formi"  action="" method="post">
-                       <li><button type="submit"  name="logout" value="1"> Log out</button></li>
+                       <li><button type="submit" id="logout"  name="logout" value="1" > Log out</button></li>
                      </form>
             </ul>
             <a  href="#fileimg"><button id="button">upload</button></a>
@@ -102,7 +102,7 @@ if (isset($_POST['logout'])) {
             <label for="file" id="choose"><span class="material-icons">
                 book &nbsp;
                 </span> Choose File</label>
-                <button id="qwert" >SUBMIT</button>
+                <button id="qwert"  >SUBMIT</button>
 <?php
 if(isset($_FILES['file1']))
 {
@@ -151,7 +151,7 @@ else {
 
 }
 else {
-  echo '<p class="yui"> <a href="signin.php" target="_blank" style="color:whitesmoke">login</a> to proceed </p>';
+  echo '<p class="yui"> <a href="signin.php" target="_blank" style="color:whitesmoke">login</a> first to proceed </p>';
 }
 }
 
@@ -161,6 +161,7 @@ else {
     <br>
     <br>
     <br>
+    <script src="javasc.js"></script>
 </body>
 <hr>
 <footer>

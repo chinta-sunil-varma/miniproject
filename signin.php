@@ -22,7 +22,7 @@
         <input type="email" class="input-box" placeholder="Your Email" name="email">
         <input type="password" class="input-box" placeholder="Your Password" name="password">
         <p id="para"><span><input type="checkbox"></span>I agree to the terms of services</p>
-        <button type="submit" class="Signup-btn" name="butto">Sign up</button>
+        <button type="submit" class="Signup-btn" name="butto">Sign in</button>
         <hr>
         <p class="or">OR</p>
 
@@ -55,11 +55,15 @@
 
             }
             if ($count==1){
-            echo "you can login";
+            echo " redirecting to home page.....";
 
-             if ($_SESSION['activstat']='activated') {
-               
-             }
+            $_SESSION['activstat']='activated';
+            echo '<script>
+            setTimeout(()=>{
+            window.location.href="app.php";},3000)
+            </script>';
+
+
           }
             else {
               echo " <span id=\"nxtline\"> <br>Password or username is incorrect </span>";
@@ -75,6 +79,8 @@
         </p>
 
         </form>
-    </div>
+
+      </div>
+<script src="signin.js"></script>      
 </body>
 </html>

@@ -39,14 +39,35 @@
              echo "</p>";
            }
            else {
-             global $conn;
+            //  global $conn;
              $email=$_POST['email'];
              $password=$_POST['password'];
              $ins= $conn-> query("INSERT INTO registration VALUES(\"$email\",\"$password\");");
              echo '<p class="phpech">';
              if ($ins) {
-
-              echo 'Registration successful';
+              $email=$_POST['email'];
+              echo 'Registration successful redirecting to signin';
+              $a=1;
+              $output=$email[0];
+              while ($a<strlen($email)) {
+                if ($email[$a]!='@' and $email[$a]!='.') {
+                  $output=$output.$email[$a];
+                  $a++;
+                }
+                else if ($email[$a]=='@') {
+                  break;
+                }
+                else{
+                  $a++;
+                }
+              }
+              $cur= $conn->query("CREATE TABLE $output(filename varchar(50))");
+              if ($cur){
+                echo "sucessful";
+              }
+              echo '<script>
+              setTimeout(()=>{window.location.href="signin.php"},3000)
+              </script>';
              }
              else {
                echo 'unsuccesfull registration';
@@ -55,7 +76,7 @@
            }
          }
 
-
+        $conn->close();
 
 
          ?>
