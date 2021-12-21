@@ -56,8 +56,9 @@
             }
             if ($count==1){
             echo " redirecting to home page.....";
-
+            $email = $_POST['email'];
             $_SESSION['activstat']='activated';
+            $_SESSION['email']=$email;
             echo '<script>
             setTimeout(()=>{
             window.location.href="app.php";},3000)

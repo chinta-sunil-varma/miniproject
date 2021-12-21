@@ -45,6 +45,7 @@
              $ins= $conn-> query("INSERT INTO registration VALUES(\"$email\",\"$password\");");
              echo '<p class="phpech">';
              if ($ins) {
+               global $conn;
               $email=$_POST['email'];
               echo 'Registration successful redirecting to signin';
               $a=1;
@@ -61,10 +62,10 @@
                   $a++;
                 }
               }
-              $cur= $conn->query("CREATE TABLE $output(filename varchar(50))");
-              if ($cur){
-                echo "sucessful";
-              }
+              
+              $cur= $conn-> query("CREATE TABLE $output(timestamptime timestamp, filename varchar(100) )");
+              // $cur1=$conn->query("insert into $output values(current_timestamp)");
+              
               echo '<script>
               setTimeout(()=>{window.location.href="signin.php"},3000)
               </script>';

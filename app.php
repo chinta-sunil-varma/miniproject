@@ -61,7 +61,7 @@ if (isset($_POST['logout'])) {
 
             <ul id="navi">
                      <li><a href="#">Home</a> </li>
-                     <li><a   href="#">Social</a> </li>
+                     <li><a   href="#" onclick="notlog()">Social</a> </li>
                      <li><a href="signup.php" target="_blank"> Signup</a></li>
                      <li><a href="#end"> About us</a></li>
                      <form id="formi"  action="" method="post">
@@ -136,6 +136,34 @@ elseif($_FILES['file1']['size']<	15000000 )
   if (move_uploaded_file($temp,'uploadeddoc/'.$temp2)) {
 
     echo "<p class=\"yui\"><a id=\"linksuc\"  href=\" $temp3 \" target=\"_blank\"> sucessfull! click here to view file </a><p>";
+    $conn= new mysqli('localhost','root','','hello');
+    
+    $email= $_SESSION['email'];
+    
+    $a=1;
+    $output=$email[0];
+    while ($a<strlen($email)) {
+      if ($email[$a]!='@' and $email[$a]!='.') {
+        $output=$output.$email[$a];
+        $a++;
+      }
+      else if ($email[$a]=='@') {
+        break;
+      }
+      else{
+        $a++;
+      }
+    }
+    // echo $output;
+    $temp2=$_FILES['file1']['name'];
+    // echo $temp2;
+    $ins=$conn->query("insert into $output(timestamptime,filename) values (current_timestamp(),\"$temp2\")");
+  //   if($ins){
+  //     echo 'succesful';
+  //   }else
+  //   {
+  //     echo 'unsec';
+  //   }
   }
   else {
     echo '<p class="yui"> unseccesful uploading please try again! </p>';
@@ -151,6 +179,7 @@ else {
 
 }
 else {
+  
   echo '<p class="yui"> <a href="signin.php" target="_blank" style="color:whitesmoke">login</a> first to proceed </p>';
 }
 }
@@ -161,7 +190,7 @@ else {
     <br>
     <br>
     <br>
-    <script src="javasc.js"></script>
+    <script src="app.js"></script>
 </body>
 <hr>
 <footer>
