@@ -10,7 +10,11 @@
 
 
 }
-
+.username
+{
+    display: flex;
+    justify-content: space-between;
+}
 .main
 {
     color: white;
@@ -19,6 +23,7 @@
     border-bottom-width: 2px;
     border-bottom-style: solid;
     margin-top: 0;
+    display: inline-block;
 }
 
 body

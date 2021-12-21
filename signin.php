@@ -55,6 +55,23 @@
 
             }
             if ($count==1){
+              $email = $_POST['email'];
+              $a=1;
+              $output=$email[0];
+              while ($a<strlen($email)) {
+              if ($email[$a]!='@' and $email[$a]!='.') {
+              $output=$output.$email[$a];
+              $a++;
+            }
+            else if ($email[$a]=='@') {
+                 break;
+                 }
+             else{
+               $a++;
+               }
+             }
+           
+            $_SESSION['username']=$output;
             echo " redirecting to home page.....";
             $email = $_POST['email'];
             $_SESSION['activstat']='activated';

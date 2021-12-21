@@ -16,6 +16,7 @@ if (isset($_POST['logout'])) {
 }
 
  ?>
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +52,8 @@ if (isset($_POST['logout'])) {
 </head>
 <body>
     <div class="initial">
-        <h1 class="main">Book Storm</h1>
+        <section class="username">
+        <h1 class="main">Book Storm</h1> </section>
         <p id="intro"> Let's get started!</p>
     </div>
     <nav id="naviga">
@@ -138,22 +140,9 @@ elseif($_FILES['file1']['size']<	15000000 )
     echo "<p class=\"yui\"><a id=\"linksuc\"  href=\" $temp3 \" target=\"_blank\"> sucessfull! click here to view file </a><p>";
     $conn= new mysqli('localhost','root','','hello');
     
-    $email= $_SESSION['email'];
     
-    $a=1;
-    $output=$email[0];
-    while ($a<strlen($email)) {
-      if ($email[$a]!='@' and $email[$a]!='.') {
-        $output=$output.$email[$a];
-        $a++;
-      }
-      else if ($email[$a]=='@') {
-        break;
-      }
-      else{
-        $a++;
-      }
-    }
+    
+    $output=$_SESSION['username'];
     // echo $output;
     $temp2=$_FILES['file1']['name'];
     // echo $temp2;
@@ -191,6 +180,15 @@ else {
     <br>
     <br>
     <script src="app.js"></script>
+    <?php
+ if (isset($_SESSION['username']))
+ { ?> 
+  <script>displayname("<?php echo $_SESSION['username']; ?>")</script>
+   <?php
+ }
+ 
+ 
+ ?>
 </body>
 <hr>
 <footer>
