@@ -40,14 +40,12 @@
            }
            else {
             //  global $conn;
-             $email=$_POST['email'];
-             $password=$_POST['password'];
-             $ins= $conn-> query("INSERT INTO registration VALUES(\"$email\",\"$password\");");
+
              echo '<p class="phpech">';
-             if ($ins) {
+             if (true) {
                global $conn;
               $email=$_POST['email'];
-              echo 'Registration successful redirecting to signin';
+              // echo 'Registration successful redirecting to signin';
               $a=1;
               $output=$email[0];
               while ($a<strlen($email)) {
@@ -62,14 +60,28 @@
                   $a++;
                 }
               }
-              
-              $cur= $conn-> query("CREATE TABLE $output(timestamptime timestamp, filename varchar(100) )");
+
+              if($cur= $conn-> query("CREATE TABLE $output(timestamptime timestamp, filename varchar(100) )"))
+              {
+                $email=$_POST['email'];
+                $password=$_POST['password'];
+                $ins= $conn-> query("INSERT INTO registration VALUES(\"$email\",\"$password\");");
+                echo "signup succesful redirecting to login";
+
+                mkdir("uploadeddoc/".$output);
+
+
               // $cur1=$conn->query("insert into $output values(current_timestamp)");
-              
+
               echo '<script>
               setTimeout(()=>{window.location.href="signin.php"},3000)
               </script>';
              }
+             else {
+               echo "your email-Id is invalid ";
+               die();
+             }
+           }
              else {
                echo 'unsuccesfull registration';
              }

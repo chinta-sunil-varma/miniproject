@@ -16,7 +16,7 @@ if (isset($_POST['logout'])) {
 }
 
  ?>
- 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -127,21 +127,21 @@ if(isset($_FILES['file1']))
 
     $temp = $_FILES['file1']['tmp_name'];
     $temp2=$_FILES['file1']['name'];
-    $temp3="uploadeddoc/".$_FILES['file1']['name'];
+    $temp3="uploadeddoc/".$_SESSION['username']."/".$_FILES['file1']['name'];
 
-    if (file_exists('uploadeddoc/'.$temp2))
+    if (file_exists($temp3))
     {
       echo '<p class="yui">file is already present </p>';
     }
 elseif($_FILES['file1']['size']<	15000000 )
  {
-  if (move_uploaded_file($temp,'uploadeddoc/'.$temp2)) {
+  if (move_uploaded_file($temp,'uploadeddoc/'.$_SESSION['username']."/".$temp2)) {
 
     echo "<p class=\"yui\"><a id=\"linksuc\"  href=\" $temp3 \" target=\"_blank\"> sucessfull! click here to view file </a><p>";
     $conn= new mysqli('localhost','root','','hello');
-    
-    
-    
+
+
+
     $output=$_SESSION['username'];
     // echo $output;
     $temp2=$_FILES['file1']['name'];
@@ -168,7 +168,7 @@ else {
 
 }
 else {
-  
+
   echo '<p class="yui"> <a href="signin.php" target="_blank" style="color:whitesmoke">login</a> first to proceed </p>';
 }
 }
@@ -182,13 +182,46 @@ else {
     <script src="app.js"></script>
     <?php
  if (isset($_SESSION['username']))
- { ?> 
+ { ?>
   <script>displayname("<?php echo $_SESSION['username']; ?>")</script>
    <?php
  }
- 
- 
+
+
  ?>
+ <h2 id="viewpdf">View your pdfs here</h2>
+ <section class="displaypdf">
+  <?php
+
+  if ($_SESSION['username']) {
+
+
+  $conn= new mysqli('localhost','root','','hello');
+
+  if ($conn-> connect_error)
+  die ('connection failed'.$conn->connect_error);
+  $temp=$_SESSION['username'];
+  $result = $conn-> query("select filename from $temp;");
+  while ($var=$result -> fetch_assoc()) {
+    $filen = $var['filename'];
+    // echo $filen;
+    echo "<script>test(\"$filen\",\"$temp\")</script>";
+
+  };
+  // echo "<pre>";
+  // echo print_r($var);
+  // echo "</pre>";
+  // foreach ($variable as $key => $value) {
+  //   // code...
+  // }
+
+}
+
+   ?>
+
+
+
+</section>
 </body>
 <hr>
 <footer>

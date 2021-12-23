@@ -224,3 +224,22 @@ h2::first-letter
 {
   cursor: pointer;
 }
+#viewpdf
+{
+    color: greenyellow;
+   
+}
+#viewpdflink
+{
+    
+    color: ghostwhite;
+    margin: 0 auto;
+    
+    
+}
+.displaypdf
+{
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
