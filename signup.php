@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +15,13 @@
         <img src="https://cdn-icons-png.flaticon.com/128/3237/3237472.png" alt="">
         <h1 style="color: whitesmoke;font-size: 3em;">Sign Up</h1>
         <form action="" method="post" name="sign">
-        <input type="email" class="input-box" placeholder="Your Email" name="email">
-        <input type="password" class="input-box" placeholder="Your Password" name="password">
+        <input type="email" class="input-box" placeholder="Your Email" name="email" required>
+        <input type="password" class="input-box" placeholder="Your Password" name="password" required>
         <p id="para"><span><input type="checkbox"></span>I agree to the terms of services</p>
         <button type="submit" class="Signup-btn" name="butto">Sign up</button>
+        </form>
         <hr>
+        
         <p class="or">OR</p>
 
         <p id="lastpara">Do You Have an Account?<a style="color: wheat;" href="signin.php">Sign in</a></p>
@@ -40,63 +45,45 @@
            }
            else {
             //  global $conn;
+            $_SESSION['email']=$_POST['email'];
+            $_SESSION['password']=$_POST['password'];
+            $ran = rand(10000,20000);
+            $_SESSION['ran']=$ran;
+            $to_email = $_POST['email'];
+            $subject = "Hello user! verify your email";
+            $body = "The OTP for registration is $ran";
+            $headers = "From: bookstormofficial@gmail.com";
+            
 
-             echo '<p class="phpech">';
-             if (true) {
-               global $conn;
-              $email=$_POST['email'];
-              // echo 'Registration successful redirecting to signin';
-              $a=1;
-              $output=$email[0];
-              while ($a<strlen($email)) {
-                if ($email[$a]!='@' and $email[$a]!='.') {
-                  $output=$output.$email[$a];
-                  $a++;
-                }
-                else if ($email[$a]=='@') {
-                  break;
-                }
-                else{
-                  $a++;
-                }
-              }
-
-              if($cur= $conn-> query("CREATE TABLE $output(timestamptime timestamp, filename varchar(100) )"))
-              {
-                $email=$_POST['email'];
-                $password=$_POST['password'];
-                $ins= $conn-> query("INSERT INTO registration VALUES(\"$email\",\"$password\");");
-                echo "signup succesful redirecting to login";
-
-                mkdir("uploadeddoc/".$output);
-
-
-              // $cur1=$conn->query("insert into $output values(current_timestamp)");
-
-              echo '<script>
-              setTimeout(()=>{window.location.href="signin.php"},3000)
-              </script>';
-             }
-             else {
-               echo "your email-Id is invalid ";
-               die();
-             }
-           }
-             else {
-               echo 'unsuccesfull registration';
-             }
-             echo '</p>';
+             if (mail($to_email, $subject, $body, $headers)) {
+               ?>
+                <p>Email successfully sent.Enter your otp here</p> 
+                
+                <span id="otptext">Enter your OTP:</span>
+                <!-- <form action="otp.php" method="post">
+                <input type="text" id="otpreader">
+                <button type="submit">submit</button>
+                </form> -->
+                <form action="otp.php" method="post">
+                  <input type="text" id="otpreader" name="otpreader" required>
+                  <button type="submit" class="Signup-btn"> submit</button>
+                </form>
+                <?php
+              } else {
+              echo "Email sending failed...";
+            }
+            
            }
          }
 
         $conn->close();
 
+       ?>
+         
 
-         ?>
 
 
-
-        </form>
+       
 
     </div>
 </body>

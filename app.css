@@ -227,19 +227,21 @@ h2::first-letter
 #viewpdf
 {
     color: greenyellow;
-   
+
 }
 #viewpdflink
 {
-    
+
     color: ghostwhite;
     margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     
-    
+
 }
 .displaypdf
 {
    display: flex;
    justify-content: space-around;
    flex-wrap: wrap;
+  
 }

@@ -101,3 +101,7 @@ button:active
 {
   color: whitesmoke;
 }
+#otptext
+{
+    color: greenyellow;
+}

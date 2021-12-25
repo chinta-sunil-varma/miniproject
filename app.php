@@ -64,7 +64,7 @@ if (isset($_POST['logout'])) {
             <ul id="navi">
                      <li><a href="#">Home</a> </li>
                      <li><a   href="#" onclick="notlog()">Social</a> </li>
-                     <li><a href="signup.php" target="_blank"> Signup</a></li>
+                     <li><a href="signup.php" > Signup</a></li>
                      <li><a href="#end"> About us</a></li>
                      <form id="formi"  action="" method="post">
                        <li><button type="submit" id="logout"  name="logout" value="1" > Log out</button></li>
@@ -193,7 +193,7 @@ else {
  <section class="displaypdf">
   <?php
 
-  if ($_SESSION['username']) {
+  if (isset($_SESSION['username'])) {
 
 
   $conn= new mysqli('localhost','root','','hello');
@@ -215,6 +215,9 @@ else {
   //   // code...
   // }
 
+}
+else {
+  echo "<p id=\"viewpdflink\"> Login first to view your PDF'S</p>";
 }
 
    ?>

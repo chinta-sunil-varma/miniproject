@@ -19,8 +19,8 @@
         <img src="https://cdn-icons-png.flaticon.com/128/3237/3237472.png" alt="">
         <h1 style="color: whitesmoke;font-size: 3em;">Sign In</h1>
         <form action="" method="post" name="hi">
-        <input type="email" class="input-box" placeholder="Your Email" name="email">
-        <input type="password" class="input-box" placeholder="Your Password" name="password">
+        <input type="email" class="input-box" placeholder="Your Email" name="email" required>
+        <input type="password" class="input-box" placeholder="Your Password" name="password" required>
         <p id="para"><span><input type="checkbox"></span>I agree to the terms of services</p>
         <button type="submit" class="Signup-btn" name="butto">Sign in</button>
         <hr>
