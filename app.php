@@ -1,16 +1,16 @@
 
 <!-- creating a cookie of name mycookie -->
 <!-- <<?php
-setcookie('mycookie','sunil',time()+(3600),'/');
-
+setcookie('mycookie','sunil',time()+(3600),'/'); // setting a cookie with name mycookie and value of sunil and it will
+                                                 // expire after 3600 seconds after creation and can be accesed by every site
 
  ?> -->
 <?php
-session_start();
+session_start(); // for dealing with $_SESSION variable we MUST start the Session
   ?>
 <?php
-if (isset($_POST['logout'])) {
-  session_unset();
+if (isset($_POST['logout'])) {  // when the person clicks on logout button page will refresh and it overrides the all the post functionality
+  session_unset();              // of other forms and his session variables first will be unset and next destroyed
   session_destroy();
   // print_r($_SESSION);
 }
@@ -25,7 +25,7 @@ if (isset($_POST['logout'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book-Storm</title>
-
+   <!-- these all are the google fonts available in fonts.google.com where you can simply choose the font and next copy it -->
     <link rel="stylesheet" href="app.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,9 +67,9 @@ if (isset($_POST['logout'])) {
                      <li><a href="signup.php" > Signup</a></li>
                      <li><a href="#end"> About us</a></li>
                      <form id="formi"  action="" method="post">
-                       <li><button type="submit" id="logout"  name="logout" value="1" > Log out</button></li>
-                     </form>
-            </ul>
+                       <li><button type="submit" id="logout"  name="logout" value="1" > Log out</button></li> <!--after clicking submit action file will be executed-->
+                     </form>                                                                                  <!--since the button is not input it cannot contain a value-->
+            </ul>                                                                                             <!--so we explictly set its value-->
             <a  href="#fileimg"><button id="button">upload</button></a>
         </div>
 
@@ -96,21 +96,21 @@ if (isset($_POST['logout'])) {
         <br>
         <br>
         <h2>Upload your PDF</h2>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data"> <!-- since one of the form element contains file we must specify the enctpe -->
         <div class="input">
             <img id="fileimg" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/2x/external-file-home-office-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" alt="" height="90px" width="90px" style="padding: 2em 0;">
 
-            <input type="file" id="file" name="file1" accept=".pdf,.doc" >
-            <label for="file" id="choose"><span class="material-icons">
+            <input type="file" id="file" name="file1" accept=".pdf,.doc" > <!-- to make the input restrict to only pdf and doc files and we are setting this display to none-->
+            <label for="file" id="choose"><span class="material-icons"> <!--here we are creating label for input file id file  -->
                 book &nbsp;
-                </span> Choose File</label>
+                </span> Choose File</label>  <!-- creating the material icons i.e embeding in line images with text -->
                 <button id="qwert"  >SUBMIT</button>
 <?php
-if(isset($_FILES['file1']))
+if(isset($_FILES['file1'])) // when user sets the file and clicks submit this shall run
 {
   // echo $_SESSION['activstat'];
   // print_r($_SESSION);
-  if (isset( $_SESSION['activstat']))
+  if (isset( $_SESSION['activstat'])) // when user logs in succesfully we create a session variable activestat if this block is true then user had logged in
   {
 
   // echo "<pre>";
@@ -118,27 +118,27 @@ if(isset($_FILES['file1']))
   // echo "</pre>";
 // echo print_r($_POST);
 
-            // [name]
-            // [type]
-            // [tmp_name]
-            // [error]
-            // [size]
+            // [name] original name
+            // [type] type of the file
+            // [tmp_name] php first sends the file to temporary location and then next to destination location// these are the subproperties of the file uploaded
+            // [error] if eroor occured
+            // [size] it contains the information of the file relating to its size in BYTES
 
 
-    $temp = $_FILES['file1']['tmp_name'];
-    $temp2=$_FILES['file1']['name'];
-    $temp3="uploadeddoc/".$_SESSION['username']."/".$_FILES['file1']['name'];
-
-    if (file_exists($temp3))
+    $temp = $_FILES['file1']['tmp_name']; // storing the temporary location of the file
+    $temp2=$_FILES['file1']['name'];  // stroing the original name of the file
+    $temp3="uploadeddoc/".$_SESSION['username']."/".$_FILES['file1']['name'];  //for evry user signed up we created a file exclusively to him only.
+    //                                                                           his folder name corresponds to his part of his email
+    if (file_exists($temp3)) // checking weather the user had uploaded the same file before
     {
       echo '<p class="yui">file is already present </p>';
     }
-elseif($_FILES['file1']['size']<	15000000 )
+elseif($_FILES['file1']['size']<	15000000 ) // preventing the user to restrict his size below 15MB
  {
-  if (move_uploaded_file($temp,'uploadeddoc/'.$_SESSION['username']."/".$temp2)) {
+  if (move_uploaded_file($temp,'uploadeddoc/'.$_SESSION['username']."/".$temp2)) {  // moving the uploaded file from temporary location to the destined folder
 
-    echo "<p class=\"yui\"><a id=\"linksuc\"  href=\" $temp3 \" target=\"_blank\"> sucessfull! click here to view file </a><p>";
-    $conn= new mysqli('localhost','root','','hello');
+    echo "<p class=\"yui\"><a id=\"linksuc\"  href=\" $temp3 \" target=\"_blank\"> sucessfull! click here to view file </a><p>"; // allowing user to check what file he had uploaded
+    $conn= new mysqli('localhost','root','','hello'); // making a connection with datatabase hello
 
 
 
@@ -146,7 +146,7 @@ elseif($_FILES['file1']['size']<	15000000 )
     // echo $output;
     $temp2=$_FILES['file1']['name'];
     // echo $temp2;
-    $ins=$conn->query("insert into $output(timestamptime,filename) values (current_timestamp(),\"$temp2\")");
+    $ins=$conn->query("insert into $output(timestamptime,filename) values (current_timestamp(),\"$temp2\")"); // since the file is uploaded we are storing the name of the file and the timestamp in db so to make retrival of it
   //   if($ins){
   //     echo 'succesful';
   //   }else
@@ -155,7 +155,7 @@ elseif($_FILES['file1']['size']<	15000000 )
   //   }
   }
   else {
-    echo '<p class="yui"> unseccesful uploading please try again! </p>';
+    echo '<p class="yui"> unseccesful uploading please try again! </p>'; // file which is not uploaded will be prompted this message
   }
 }
 else {
@@ -169,7 +169,7 @@ else {
 }
 else {
 
-  echo '<p class="yui"> <a href="signin.php" target="_blank" style="color:whitesmoke">login</a> first to proceed </p>';
+  echo '<p class="yui"> <a href="signin.php" target="_blank" style="color:whitesmoke">login</a> first to proceed </p>'; // if the user dosenot loged in try to upload this message shall be prompted
 }
 }
 
@@ -183,7 +183,7 @@ else {
     <?php
  if (isset($_SESSION['username']))
  { ?>
-  <script>displayname("<?php echo $_SESSION['username']; ?>")</script>
+  <script>displayname("<?php echo $_SESSION['username']; ?>")</script> <!-- if user succesfuly logs in we shall display his name on top. make sure the echo statement is wrapped around double qoutes to make it stirng-->
    <?php
  }
 
@@ -193,7 +193,7 @@ else {
  <section class="displaypdf">
   <?php
 
-  if (isset($_SESSION['username'])) {
+  if (isset($_SESSION['username'])) { // if user loggs in then the his username shall be set
 
 
   $conn= new mysqli('localhost','root','','hello');
@@ -201,11 +201,11 @@ else {
   if ($conn-> connect_error)
   die ('connection failed'.$conn->connect_error);
   $temp=$_SESSION['username'];
-  $result = $conn-> query("select filename from $temp;");
-  while ($var=$result -> fetch_assoc()) {
+  $result = $conn-> query("select filename from $temp;"); // we are selecting all the filenames from the user personal table. this shall result in return of mysqli_result object
+  while ($var=$result -> fetch_assoc()) { // fetch_assoc() will return an associative array of the the user table with one tuple at a time. so we kept this in while loop to fetch all rows
     $filen = $var['filename'];
     // echo $filen;
-    echo "<script>test(\"$filen\",\"$temp\")</script>";
+    echo "<script>test(\"$filen\",\"$temp\")</script>"; // since all the files of user are in the directory path upploadeddoc-> username -> file name we are passing username and file name as a parameter to js function
 
   };
   // echo "<pre>";
@@ -217,7 +217,7 @@ else {
 
 }
 else {
-  echo "<p id=\"viewpdflink\"> Login first to view your PDF'S</p>";
+  echo "<p id=\"viewpdflink\"> Login first to view your PDF'S</p>"; // if user doesnot loggs in this shall be printed
 }
 
    ?>
@@ -239,9 +239,10 @@ else {
 
             ?>
             <br>
+            <!-- making the image maps  -->
             <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="insta" height="32px" width="32px" style="padding: 0.4em;" usemap="#insta">
             <map name="insta">
-                <area shape="default" coords="" href="#" alt="">
+                <area shape="default" coords="" href="#" alt=""> <!--  total shape of the image will be considered as a map-->
             </map>
             <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp" height="32px" width="32px" style="padding: 0.4em;" usemap="#whats">
             <map name="whats">

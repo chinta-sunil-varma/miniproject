@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  session_start(); // since we deal with session below we must start it first
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +29,12 @@
         <?php
         $count=0;
         $conn= new mysqli('localhost','root','','hello');
-        if ($_POST) {
+        if ($_POST) { // this block shall execute when the user clicks the form submit
          $qur= $conn->query('select email from registration');
          while ($temp= $qur->fetch_assoc()) {
-           if ($temp['email']==$_POST['email']) {
+           if ($temp['email']==$_POST['email']) { // here we are checking whether the user entered the email which is already present in the data base
             global $count;
-            $count++;
+            $count++; // this shall increment when we find a username corresponding to entered email
             break;
            }
          }
@@ -44,18 +44,18 @@
              echo "</p>";
            }
            else {
-            //  global $conn;
-            $_SESSION['email']=$_POST['email'];
+            //  global $conn; thsis block shall execute if he is a new user
+            $_SESSION['email']=$_POST['email']; // since we redirect the otp.php page when user clicks submit we shall loose his info like his password and email so we store them in the session
             $_SESSION['password']=$_POST['password'];
-            $ran = rand(10000,20000);
-            $_SESSION['ran']=$ran;
-            $to_email = $_POST['email'];
-            $subject = "Hello user! verify your email";
-            $body = "The OTP for registration is $ran";
-            $headers = "From: bookstormofficial@gmail.com";
+            $ran = rand(10000,20000); // generating the random number from the given range this is the OTP
+            $_SESSION['ran']=$ran;   // storing the random number
+            $to_email = $_POST['email']; // destination email
+            $subject = "Hello user! verify your email"; // subject of the mail
+            $body = "The OTP for registration is $ran"; // body of the mail
+            $headers = "From: bookstormofficial@gmail.com"; // the gmail SMTP which we configured in both php.ini and email sender file should be specified
             
 
-             if (mail($to_email, $subject, $body, $headers)) {
+             if (mail($to_email, $subject, $body, $headers)) {  // this shall return true if we send the email succesfully
                ?>
                 <p>Email successfully sent.Enter your otp here</p> 
                 
@@ -64,7 +64,7 @@
                 <input type="text" id="otpreader">
                 <button type="submit">submit</button>
                 </form> -->
-                <form action="otp.php" method="post">
+                <form action="otp.php" method="post">  <!-- since the mail was sent now we prompt the user to enter his otp and this otp shall be redirected to otp.php file -->
                   <input type="text" id="otpreader" name="otpreader" required>
                   <button type="submit" class="Signup-btn"> submit</button>
                 </form>
@@ -76,7 +76,7 @@
            }
          }
 
-        $conn->close();
+        $conn->close(); // closing the connection with database
 
        ?>
          

@@ -2,7 +2,10 @@
 
 
 
-<?php session_start();  ?>
+<?php session_start();
+// since the user logs in we must start a session
+
+?> 
 
 
 <!DOCTYPE html>
@@ -30,19 +33,23 @@
 
 
         <?php
-        $conn= new mysqli('localhost','root','','hello');
-        $count=0;
+        
+         
+          if ($_POST) // user had submiited the form
+          {
+            $conn= new mysqli('localhost','root','','hello'); // connection with data base
+            $count=0;
         if ($conn-> connect_error)
-        die ('connection failed'.$conn->connect_error);
-        else {
-          if ($_POST)
-          {$email = $_POST['email'];
+        {
+        die ('connection failed'.$conn->connect_error); 
+        }
+            $email = $_POST['email'];   //retriving the input values of email and pass word fields
           $password= $_POST['password'];
           function namechecker()
           {
 
             global $conn,$email,$count,$password;
-            $var= $conn-> query('select * from registration ');
+            $var= $conn-> query('select * from registration '); //checking the mail and the password
             echo "<br>";
 
 
@@ -54,7 +61,7 @@
 
 
             }
-            if ($count==1){
+            if ($count==1){  // here we have succesfuly got the info of the user now we should create a unique username of user 
               $email = $_POST['email'];
               $a=1;
               $output=$email[0];
@@ -70,15 +77,16 @@
                $a++;
                }
              }
-           
-            $_SESSION['username']=$output;
+           // output variable stores the username
+            $_SESSION['username']=$output;  // this session variable is finally used to diaplay his name on the app.php
             echo " redirecting to home page.....";
             $email = $_POST['email'];
-            $_SESSION['activstat']='activated';
+            $_SESSION['activstat']='activated'; // creating a variable activstat to know that the session had actually started
             $_SESSION['email']=$email;
+            // finally redirecting to home page
             echo '<script>
             setTimeout(()=>{
-            window.location.href="app.php";},3000)
+            window.location.href="app.php";},3000) 
             </script>';
 
 
@@ -90,8 +98,8 @@
 
 
             }
-            namechecker();
-          }}
+            namechecker(); //funciton calling
+          }
 
         ?>
         </p>
