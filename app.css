@@ -224,7 +224,7 @@ h2::first-letter
 {
   cursor: pointer;
 }
-#viewpdf
+.viewpdf
 {
     color: greenyellow;
 
@@ -233,7 +233,7 @@ h2::first-letter
 {
 
     color: ghostwhite;
-    margin: 0 auto;
+    margin: 2em 0 2em 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 
@@ -241,7 +241,17 @@ h2::first-letter
 .displaypdf
 {
    display: flex;
-   justify-content: space-around;
+   justify-content: space-evenly;
    flex-wrap: wrap;
   
+}
+.bookmark
+{
+    display: flex;
+    justify-content: center;
+}
+#bookmarksubmit
+{
+    display: block;
+    margin-top: 1em;
 }

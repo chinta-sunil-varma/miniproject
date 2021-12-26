@@ -107,6 +107,6 @@
         </form>
 
       </div>
-<script src="signin.js"></script>      
+
 </body>
 </html>

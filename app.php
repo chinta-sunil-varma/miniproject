@@ -189,7 +189,7 @@ else {
 
 
  ?>
- <h2 id="viewpdf">View your pdfs here</h2>
+ <h2 class="viewpdf">View your pdfs here</h2>
  <section class="displaypdf">
   <?php
 
@@ -222,9 +222,50 @@ else {
 
    ?>
 
-
-
+  
 </section>
+<h2 class="viewpdf">Create your bookmark</h2>
+<?php
+if(isset($_SESSION['activstat']))
+
+{
+  
+  ?>
+<section class="bookmark">
+
+  <?php
+  echo '
+  <form action="bookmark.php" method="POST" target="_blank">
+  <select  id="select1" name="select">
+    
+    
+    
+  </select>
+  <button type="submit" id="bookmarksubmit" >Select this PDF</button>
+  </form>
+  </section> ';
+  $conn = new mysqli ('localhost','root','','hello');
+  $table = $_SESSION['username'];
+  if($conn -> connect_error)
+  {
+    die("connection failed with database");
+  }
+  $res = $conn-> query("select filename from $table  ");
+  while($var = $res->fetch_assoc())
+  {
+    $temp4= $var['filename'];
+    echo "<script>listadd(\" $temp4\")</script>";
+  }
+  
+  
+  ?>
+
+  <?php
+}
+else{
+  echo "<p id=\"viewpdflink\"> Login first to avail the feature</p>";
+}
+?>
 </body>
 <hr>
 <footer>

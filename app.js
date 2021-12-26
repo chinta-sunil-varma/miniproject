@@ -13,8 +13,9 @@ function displayname(a){
 function test(a,b){ // this function will dyanamically allot the space to pdf based on their count
   const div=document.createElement('div') // creating the div to append them finally into a flex box
   
-  
-  div.style.margin="2em" // giving the divs margin so to make them clear
+  div.style.marginBottom="4em"
+ 
+  // giving the divs margin so to make them clear
   div.style.minWidth="50%" // making the divs not to compress when more divs come on the way so the rest wraps below
  const img=document.createElement('img')
   img.src="https://cdn-icons-png.flaticon.com/128/337/337946.png" // creating the image common to all pdf
@@ -32,4 +33,13 @@ function test(a,b){ // this function will dyanamically allot the space to pdf ba
   name.style.display="block" // making them as block so they dont inline with image
   name.target="_blank" // opening the file in new tab
   div.appendChild(name)
+}
+function listadd(a){
+ const selection = document.querySelector("select")
+ const option = document.createElement("option")
+ option.innerText=a
+ selection.appendChild(option)
+
+
+
 }
