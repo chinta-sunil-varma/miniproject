@@ -146,7 +146,7 @@ elseif($_FILES['file1']['size']<	15000000 ) // preventing the user to restrict h
     // echo $output;
     $temp2=$_FILES['file1']['name'];
     // echo $temp2;
-    $ins=$conn->query("insert into $output(timestamptime,filename) values (current_timestamp(),\"$temp2\")"); // since the file is uploaded we are storing the name of the file and the timestamp in db so to make retrival of it
+    $ins=$conn->query("insert into fileupload(name,file,time_upload) values (\"$output\",\"$temp2\",current_timestamp())"); // since the file is uploaded we are storing the name of the file and the timestamp in db so to make retrival of it
   //   if($ins){
   //     echo 'succesful';
   //   }else
@@ -201,9 +201,9 @@ else {
   if ($conn-> connect_error)
   die ('connection failed'.$conn->connect_error);
   $temp=$_SESSION['username'];
-  $result = $conn-> query("select filename from $temp;"); // we are selecting all the filenames from the user personal table. this shall result in return of mysqli_result object
+  $result = $conn-> query("select file from fileupload where name=\"$temp\";"); // we are selecting all the filenames from the user personal table. this shall result in return of mysqli_result object
   while ($var=$result -> fetch_assoc()) { // fetch_assoc() will return an associative array of the the user table with one tuple at a time. so we kept this in while loop to fetch all rows
-    $filen = $var['filename'];
+    $filen = $var['file'];
     // echo $filen;
     echo "<script>test(\"$filen\",\"$temp\")</script>"; // since all the files of user are in the directory path upploadeddoc-> username -> file name we are passing username and file name as a parameter to js function
 
@@ -246,14 +246,16 @@ if(isset($_SESSION['activstat']))
   </section> ';
   $conn = new mysqli ('localhost','root','','hello');
   $table = $_SESSION['username'];
+ 
   if($conn -> connect_error)
   {
     die("connection failed with database");
   }
-  $res = $conn-> query("select filename from $table  ");
+  $res = $conn-> query("select file from fileupload where name=\"$table\"  ");
+ 
   while($var = $res->fetch_assoc())
   {
-    $temp4= $var['filename'];
+    $temp4= $var['file'];
     echo "<script>listadd(\" $temp4\")</script>";
   }
   
@@ -263,7 +265,9 @@ if(isset($_SESSION['activstat']))
   <?php
 }
 else{
-  echo "<p id=\"viewpdflink\"> Login first to avail the feature</p>";
+  echo "<section class=\"displaypdf\">";
+  echo "<p class=\"center\"> Login first to avail the feature</p>";
+  echo "</section>";
 }
 ?>
 </body>
@@ -298,5 +302,6 @@ else{
 
 
 </footer>
+
 
 </html>

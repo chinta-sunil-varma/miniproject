@@ -55,6 +55,7 @@
 
             while ($temp= $var->fetch_assoc()) {
             if ($temp['email']==$email and $temp['password']==$password) {
+              $name=$temp['name'];
               $count++;
               break;
             }
@@ -63,24 +64,11 @@
             }
             if ($count==1){  // here we have succesfuly got the info of the user now we should create a unique username of user 
               $email = $_POST['email'];
-              $a=1;
-              $output=$email[0];
-              while ($a<strlen($email)) {
-              if ($email[$a]!='@' and $email[$a]!='.') {
-              $output=$output.$email[$a];
-              $a++;
-            }
-            else if ($email[$a]=='@') {
-                 break;
-                 }
-             else{
-               $a++;
-               }
-             }
+              
            // output variable stores the username
-            $_SESSION['username']=$output;  // this session variable is finally used to diaplay his name on the app.php
+            $_SESSION['username']=$name;  // this session variable is finally used to diaplay his name on the app.php
             echo " redirecting to home page.....";
-            $email = $_POST['email'];
+            
             $_SESSION['activstat']='activated'; // creating a variable activstat to know that the session had actually started
             $_SESSION['email']=$email;
             // finally redirecting to home page

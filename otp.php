@@ -18,25 +18,12 @@
            $conn= new mysqli('localhost','root','','hello'); //since user had entered th correct otp we shall create a unique name corresponding to him
            $email=$_SESSION['email'];
            // echo 'Registration successful redirecting to signin';
-           $a=1;
-           $output=$email[0];
-           while ($a<strlen($email)) {
-             if ($email[$a]!='@' and $email[$a]!='.') {
-               $output=$output.$email[$a];
-               $a++;
-             }
-             else if ($email[$a]=='@') {
-               break;
-             }
-             else{
-               $a++;
-             }
-           }
+           
            // output variable contains the name which is unique for all users since email entered is unique
           
 
-           if($cur= $conn-> query("CREATE TABLE $output(timestamptime timestamp, filename varchar(100) )")) //checking weather the output name can make the table in our database
-           {
+           
+           
                // making user know that his acc has been succesfully created
             echo '
             <section class="redirect">
@@ -48,12 +35,14 @@
             
             
             ';
+            
              $email=$_SESSION['email'];
              $password=$_SESSION['password'];
-             $ins= $conn-> query("INSERT INTO registration VALUES(\"$email\",\"$password\");"); //finally here the user is registered with us
+             $name=$_SESSION['name'];
+             $ins= $conn-> query("INSERT INTO registration VALUES(\"$email\",\"$password\",\"$name\");"); //finally here the user is registered with us
             
 
-             mkdir("uploadeddoc/".$output); // the user specific directory where all his pdf shall be stored is specified below
+             mkdir("uploadeddoc/".$name); // the user specific directory where all his pdf shall be stored is specified below
 
 
            
@@ -61,24 +50,22 @@
            echo '<script>
            setTimeout(()=>{window.location.href="signin.php"},3000)
            </script>'; 
-          }
-          else {
-            echo "your email-Id is invalid ";
-            die();
-          }
+          
+          
         }
           else {
             echo 'unsuccesfull registration';
           }
      }
      // here the user had entered the wrong otp so we shall make him know and redirect him to signup page
+     else{
      echo '
      <section class="redirect">
      <h1 class="main">OTP is Invalid! Try agian</h1>
      
      </section>
      
-     ';
+     ';}
      session_unset(); // since the session must be useed again in login we must destroy the session
      session_destroy();
      echo '<script>

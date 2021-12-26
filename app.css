@@ -255,3 +255,11 @@ h2::first-letter
     display: block;
     margin-top: 1em;
 }
+.center
+{
+    justify-content: center;
+    color: ghostwhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: inline-block;
+    margin: 0 auto;
+}

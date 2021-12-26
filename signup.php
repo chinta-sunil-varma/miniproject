@@ -15,6 +15,7 @@
         <img src="https://cdn-icons-png.flaticon.com/128/3237/3237472.png" alt="">
         <h1 style="color: whitesmoke;font-size: 3em;">Sign Up</h1>
         <form action="" method="post" name="sign">
+          <input type="text" class="input-box" placeholder="Your name" name="name" required>
         <input type="email" class="input-box" placeholder="Your Email" name="email" required>
         <input type="password" class="input-box" placeholder="Your Password" name="password" required>
         <p id="para"><span><input type="checkbox"></span>I agree to the terms of services</p>
@@ -28,6 +29,7 @@
 
         <?php
         $count=0;
+        $count1=0;
         $conn= new mysqli('localhost','root','','hello');
         if ($_POST) { // this block shall execute when the user clicks the form submit
          $qur= $conn->query('select email from registration');
@@ -42,11 +44,34 @@
              echo '<p class="phpech">';
              echo "your account is already present try to login";
              echo "</p>";
+             die();
            }
+           $qur= $conn->query('select name from registration');
+           while($temp = $qur->fetch_assoc()){
+
+            if($temp['name']==$_POST['name']){
+              global $count1;
+              $count1++;
+              break;
+            }
+           }
+           if($count1==1)
+           {
+            echo '<p class="phpech">';
+            echo "Name is already used by other user!";
+            echo "</p>";
+            die();
+           }
+          
+
+
+
+
            else {
             //  global $conn; thsis block shall execute if he is a new user
             $_SESSION['email']=$_POST['email']; // since we redirect the otp.php page when user clicks submit we shall loose his info like his password and email so we store them in the session
             $_SESSION['password']=$_POST['password'];
+            $_SESSION['name']=$_POST['name'];
             $ran = rand(10000,20000); // generating the random number from the given range this is the OTP
             $_SESSION['ran']=$ran;   // storing the random number
             $to_email = $_POST['email']; // destination email
