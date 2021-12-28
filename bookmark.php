@@ -1,5 +1,6 @@
 <?php
    session_start();
+   $_SESSION['fileactive']=$_POST['select'];
 ?>
 
 <!DOCTYPE html>
@@ -9,18 +10,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOOKMARK</title>
+    <link rel="stylesheet" href="bookmark.css">
+    <script src="bookmark.js"></script>
 </head>
 <body>
 
     <h1>Edit your Bookmarks</h1>
     <?php
     if(isset($_POST)){
+        
     $loc = "uploadeddoc\\". $_SESSION['username'] ."\\" . trim($_POST['select']); 
     
-    
+    echo '<section id="flexy">';
     echo "
-    <iframe src=\"$loc\" width=\"700em\" height=\"700em\"></iframe>
+    <iframe id=\"iframeobj\" src=\"$loc\" width=\"700em\" height=\"700em\"></iframe>
     ";
+    
     }
     else
     {
@@ -29,7 +34,42 @@
     }
     ?>
     <section class="content">
+        <p class="font" onclick="addinput()">Add bookmark+</p>
+        <section class="innersec">
+            <form action="reload.php" method="post" id="form">
+                <button type="submit">click me</button>
+            </form>
+        </section>
+        <h2 style="display:inline-block">view your book marks here</h2>
+        <section class="viewbook"></section>
+        <?php
+        $name=$_SESSION['username'];
+        $file=$_SESSION['fileactive'];
+        $conn= new mysqli('localhost','root','','hello');
+        
+        if($result=$conn->query("select page,description from bookmarks where name=\"$name\" and file=\"$file\""))
+        {
+            while($var=$result->fetch_assoc())
+            {
+                $page = $var['page'];
+                // echo $page;
+                
+                $desc=$var['description'];
+                // echo $desc;
+            echo "<script>showbook(\"$page\",\"$desc\")</script>";
+            }
+        }
+        else
+        {
+            echo 'not working';
+        }
+        
+        
+        ?>
         
     </section>
+    <?php echo '</section>'; ?>
+    
+    <!-- <script src="bookmark.js"></script> -->
 </body>
 </html>

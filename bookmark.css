@@ -1,0 +1,12 @@
+.content
+{
+    display: inline-block;
+}
+#flexy
+{
+    display: flex;
+}
+.font
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
