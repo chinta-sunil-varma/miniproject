@@ -37,7 +37,7 @@
         <p class="font" onclick="addinput()">Add bookmark+</p>
         <section class="innersec">
             <form action="reload.php" method="post" id="form">
-                <button type="submit">click me</button>
+                <button type="submit">submit</button>
             </form>
         </section>
         <h2 style="display:inline-block">view your book marks here</h2>
@@ -56,7 +56,8 @@
                 
                 $desc=$var['description'];
                 // echo $desc;
-            echo "<script>showbook(\"$page\",\"$desc\")</script>";
+                // $out=htmlspecialchars($desc);
+            echo "<script>showbook(`$page`,`$desc`)</script>";
             }
         }
         else

@@ -36,12 +36,16 @@ function addinput(){
 function showbook(a,b){ //a=page;b=discription
     const para=document.createElement("p")
     const viewbook=document.querySelector(".viewbook")
+    para.style.color="#efd3d7"
+    para.style.cursor="pointer"
+    para.style.fontFamily="Sans-serif"
     const iframeobj=document.querySelector("#iframeobj")
     const src =iframeobj.src
     para.innerText=`page ${a}`
     para.id="par"+" "+a
     const para1=document.createElement("p")
     para1.innerText=`DESCRIPTION: ${b}`
+    para1.style.fontFamily="Sans-serif"
     
     viewbook.appendChild(para)
     viewbook.appendChild(para1)

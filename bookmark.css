@@ -1,12 +1,29 @@
 .content
 {
     display: inline-block;
+    height: 45em;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 #flexy
 {
     display: flex;
 }
 .font
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+body
+{
+    background-color: #8d99ae;
+    /* color: whitesmoke; */
+}
+#iframeobj
+{
+    min-width: 50%;
+}
+h1
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
