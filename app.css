@@ -109,6 +109,7 @@ main h1::first-letter
 .introdiv
 {
     display: flex;
+    justify-content: space-between;
 }
 h2
 {
@@ -262,4 +263,8 @@ h2::first-letter
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: inline-block;
     margin: 0 auto;
+}
+.lists
+{
+    margin-bottom: 0.7em;
 }

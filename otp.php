@@ -61,16 +61,20 @@
      else{
      echo '
      <section class="redirect">
-     <h1 class="main">OTP is Invalid! Try agian</h1>
+     <h1 class="main">OTP is Invalid! Try to signup agian!</h1>
      
      </section>
      
-     ';}
+     ';
+     echo '<script>
+     setTimeout(()=>{window.location.href="signup.php"},3000)
+     </script>';
+    
+    
+    }
      session_unset(); // since the session must be useed again in login we must destroy the session
      session_destroy();
-     echo '<script>
-           setTimeout(()=>{window.location.href="signin.php"},3000)
-           </script>';
+     
           
     ?>
 </body>

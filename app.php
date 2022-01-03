@@ -78,9 +78,16 @@ if (isset($_POST['logout'])) {  // when the person clicks on logout button page 
     <main>
         <h1>Introduction</h1>
         <div class="introdiv">
-            <p class="para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam dolorum maxime minus accusamus ratione, illum animi voluptates vel quos suscipit non cum soluta in eius quibusdam. Error id nihil temporibus.
-            Suscipit cum vitae esse culpa quis odio architecto reprehenderit, temporibus, tempora asperiores deserunt error assumenda molestias animi laborum, aperiam veritatis repellendus! Iusto fugiat quia deleniti tenetur sed tempora dolor beatae.
-            Fugit ad quae at pariatur soluta consequuntur deleniti minima quam, nemo, eligendi enim ipsum asperiores ea magnam laudantium rerum consequatur excepturi cumque tempora fuga. Natus, aperiam? Dicta quaerat excepturi repellat.</p>
+          <DIV class="innerdiv">
+            <p class="para">
+              Welcome to BookStorm! Lets just have a quick overview of this Site to get detailed picture of what it could do. These are the 3 simple steps to follow
+              <ol style="font-family:Montserrat">
+                <li class="lists">Create a free Account</li>
+                <li class="lists">upload your desired PDF/DOC</li>
+                <li class="lists">save your bookmarks for future use</li>
+                </ol>
+            </p>
+            </DIV>
             <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/2x/external-book-office-stationery-justicon-lineal-color-justicon.png" alt="">
         </div>
         <br>
@@ -88,8 +95,10 @@ if (isset($_POST['logout'])) {  // when the person clicks on logout button page 
         <br>
         <h2>How does's it work?</h2>
         <div class="introdiv">
-            <p class="para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis consequatur eligendi et facilis cupiditate ipsam! Omnis animi, ratione praesentium ipsa debitis nostrum hic! Reiciendis et iusto quidem vitae nobis quia?
-            Nostrum modi fugit dolores eligendi laudantium at facilis aperiam architecto! Culpa quisquam laboriosam repudiandae sapiente autem. Eaque qui impedit similique consequuntur! Expedita in natus saepe cum, et dolor hic a.</p>
+          <div class="innerdiv">
+            <p class="para">You have a previlage to upload PDF/DOC files and these files will be stored securely in our website for further use. You can then specifically add your Bookmarks and save it with a Description 
+              so that next time when you open our website you can effortlessly navigate to the pages you saved quickly without remembering the important pages! <span style="display:block;padding-left:47%; margin-top:3em">Thats it Now you are Good to go!</span>
+            </p> </div>
             <img src="https://img.icons8.com/nolan/2x/file.png" alt="">
         </div>
         <br>
@@ -287,11 +296,11 @@ else{
             <!-- making the image maps  -->
             <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="insta" height="32px" width="32px" style="padding: 0.4em;" usemap="#insta">
             <map name="insta">
-                <area shape="default" coords="" href="#" alt=""> <!--  total shape of the image will be considered as a map-->
+                <area shape="default" coords="" href="https://www.instagram.com/invites/contact/?i=1cl4fkd2xu4c8&utm_content=kizg5lf" alt="" target="_blank"> <!--  total shape of the image will be considered as a map-->
             </map>
             <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp" height="32px" width="32px" style="padding: 0.4em;" usemap="#whats">
             <map name="whats">
-                <area shape="default" coords="" href="" alt="">
+                <area shape="default" coords="" href="https://wa.me/916309679088" alt="" target="_blank">
             </map>
             <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="git" height="32px" width="32px" style="padding: 0.4em;" usemap="#git">
             <map name="git">

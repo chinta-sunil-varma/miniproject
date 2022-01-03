@@ -18,7 +18,7 @@ function test(a,b){ // this function will dyanamically allot the space to pdf ba
   // giving the divs margin so to make them clear
   div.style.minWidth="50%" // making the divs not to compress when more divs come on the way so the rest wraps below
  const img=document.createElement('img')
-  img.src="https://cdn-icons-png.flaticon.com/128/337/337946.png" // creating the image common to all pdf
+  img.src="file.png" // creating the image common to all pdf
   img.style.width='100px'
   img.style.height='100px'
   div.appendChild(img)

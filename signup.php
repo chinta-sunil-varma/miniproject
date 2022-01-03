@@ -66,8 +66,9 @@
 
 
 
-
-           else {
+          
+           elseif(strlen($_POST['password'])>6) {
+            
             //  global $conn; thsis block shall execute if he is a new user
             $_SESSION['email']=$_POST['email']; // since we redirect the otp.php page when user clicks submit we shall loose his info like his password and email so we store them in the session
             $_SESSION['password']=$_POST['password'];
@@ -82,7 +83,7 @@
 
              if (mail($to_email, $subject, $body, $headers)) {  // this shall return true if we send the email succesfully
                ?>
-                <p>Email successfully sent.Enter your otp here</p> 
+                <p>Check your Inbox For OTP</p> 
                 
                 <span id="otptext">Enter your OTP:</span>
                 <!-- <form action="otp.php" method="post">
@@ -98,6 +99,10 @@
               echo "Email sending failed...";
             }
             
+           }
+           else
+           {
+             echo '<p>Password is less than 6 Characters!</p>';
            }
          }
 

@@ -51,10 +51,13 @@ if(isset($_POST))
         echo 'unable to penetrate';
     }
 
-  
+    
 }
 ?>
-<a href="javascript:history.go(-1)">sucessful uploading of bookmarks</a>
+<script>
+    javascript:history.go(-1)
+    
+</script>
 </body>
 </html>
 

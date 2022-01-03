@@ -37,7 +37,7 @@
         <p class="font" onclick="addinput()">Add bookmark+</p>
         <section class="innersec">
             <form action="reload.php" method="post" id="form">
-                <button type="submit">submit</button>
+                <button id="downbutto" type="submit">submit</button>
             </form>
         </section>
         <h2 style="display:inline-block">view your book marks here</h2>
@@ -72,5 +72,11 @@
     <?php echo '</section>'; ?>
     
     <!-- <script src="bookmark.js"></script> -->
+    <!-- <script>
+    if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+       }  
+    </script> -->
+    
 </body>
 </html>
