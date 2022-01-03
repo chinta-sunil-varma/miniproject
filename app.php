@@ -224,7 +224,7 @@ else {
 
   
 </section>
-<h2 class="viewpdf">Create your bookmark</h2>
+<h2 class="viewpdf">Create your bookmark</h2> <!-- creating a bookmark -->
 <?php
 if(isset($_SESSION['activstat']))
 
@@ -244,19 +244,19 @@ if(isset($_SESSION['activstat']))
   <button type="submit" id="bookmarksubmit" >Select this PDF</button>
   </form>
   </section> ';
-  $conn = new mysqli ('localhost','root','','hello');
+  $conn = new mysqli ('localhost','root','','hello'); //making a connection between data base to retirve the file names of the particular user
   $table = $_SESSION['username'];
  
   if($conn -> connect_error)
   {
     die("connection failed with database");
   }
-  $res = $conn-> query("select file from fileupload where name=\"$table\"  ");
+  $res = $conn-> query("select file from fileupload where name=\"$table\"  "); // connection with the database is sucessfully established
  
   while($var = $res->fetch_assoc())
   {
     $temp4= $var['file'];
-    echo "<script>listadd(\" $temp4\")</script>";
+    echo "<script>listadd(\" $temp4\")</script>"; //this js function will dynamically add the list options i.e members are the contents from database.
   }
   
   
@@ -265,7 +265,7 @@ if(isset($_SESSION['activstat']))
   <?php
 }
 else{
-  echo "<section class=\"displaypdf\">";
+  echo "<section class=\"displaypdf\">"; // if session variable is not present we will display the following message
   echo "<p class=\"center\"> Login first to avail the feature</p>";
   echo "</section>";
 }
