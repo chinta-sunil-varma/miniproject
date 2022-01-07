@@ -7,6 +7,7 @@ function addinput(){
     let ran=Math.floor((Math.random()*1000)+1)
     input.name="text"+ran
     let label =document.createElement("label")
+    
     label.innerText="enter your page no"
     label.style.fontFamily="Montserrat"
     

@@ -73,10 +73,11 @@
             $_SESSION['email']=$_POST['email']; // since we redirect the otp.php page when user clicks submit we shall loose his info like his password and email so we store them in the session
             $_SESSION['password']=$_POST['password'];
             $_SESSION['name']=$_POST['name'];
+            $name=$_SESSION['name'];
             $ran = rand(10000,20000); // generating the random number from the given range this is the OTP
             $_SESSION['ran']=$ran;   // storing the random number
             $to_email = $_POST['email']; // destination email
-            $subject = "Hello user! verify your email"; // subject of the mail
+            $subject = "Hello $name ! verify your email"; // subject of the mail
             $body = "The OTP for registration is $ran"; // body of the mail
             $headers = "From: bookstormofficial@gmail.com"; // the gmail SMTP which we configured in both php.ini and email sender file should be specified
             

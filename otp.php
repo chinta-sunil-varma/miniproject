@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['ran']))
+{
+  
+  echo '<script>window.location.href="signin.php";</script>';
+  die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +20,7 @@
 </head>
 <body>
     <?php
-    session_start();
+    
     // print_r($_POST);
     // print_r($_SESSION);
      if($_POST['otpreader']==$_SESSION['ran']) // checking weather the otp entered by the user matches with the generated otp

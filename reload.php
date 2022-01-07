@@ -1,4 +1,18 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+if(!isset($_SESSION['activstat']))
+{
+  
+  echo '<script>window.location.href="signin.php";</script>';
+  die();
+}
+if($_POST==null)
+{
+    echo '<script>window.location.href="app.php";</script>';
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
