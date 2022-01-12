@@ -77,7 +77,7 @@
             $ran = rand(10000,20000); // generating the random number from the given range this is the OTP
             $_SESSION['ran']=$ran;   // storing the random number
             $to_email = $_POST['email']; // destination email
-            $subject = "Hello $name ! verify your email"; // subject of the mail
+            $subject = "Hello $name ! verify your email for Book Storm access"; // subject of the mail
             $body = "The OTP for registration is $ran"; // body of the mail
             $headers = "From: bookstormofficial@gmail.com"; // the gmail SMTP which we configured in both php.ini and email sender file should be specified
             

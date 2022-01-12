@@ -125,6 +125,7 @@ h2::first-letter
 {
     text-indent: 1em;
     font-family: montserrat;
+    color: whitesmoke;
 }
 .input
 {
@@ -267,4 +268,62 @@ h2::first-letter
 .lists
 {
     margin-bottom: 0.7em;
+}
+.footer1
+{
+    /* display: flex; 
+     justify-content: center; */
+    color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 25%;
+
+}
+.title
+{
+    display: block;
+    margin: 1em;
+    font-size: 150%;
+}
+.footer-para
+{
+    
+    color: #b7b7a4;
+    
+}
+.smaller
+{
+    font-size:90%;
+    margin-top:5px;
+}
+.link-block
+{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: yellowgreen;
+    margin-bottom: 0.4em;
+}
+.footer
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+.final-para
+{
+    font-size: 90%;
+}
+.scrap
+{
+    display: flex;
+    background-color: #001219;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.imgsty
+{
+    margin: 50px;
+}
+#endhtwo
+{
+    color: yellowgreen;
 }

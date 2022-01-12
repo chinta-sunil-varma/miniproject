@@ -279,22 +279,62 @@ else{
   echo "</section>";
 }
 ?>
+<h2 id="endhtwo">Free Books to Read!</h2>
+<p class="para"> Welcome! this is the free section of books which will be updated frequently, make sure you grab em. Atlast, the books are owned by open library archive. All the neccesarry lisences are with held with them.</p>
+<section class="scrap">
+  
+  <?php
+  if(isset($_SESSION['activstat']))
+  {
+include 'simple_html_dom.php';
+
+$ch=curl_init();
+curl_setopt($ch, option:CURLOPT_URL,value:"https://openlibrary.org/people/isidore5458/lists/OL197209L/Can_be_read_without_borrowing");
+curl_setopt($ch,option:CURLOPT_FOLLOWLOCATION,value:1);
+curl_setopt($ch,option:CURLOPT_RETURNTRANSFER, value:1);
+$response = curl_exec($ch);
+// echo '<pre>';
+ 
+//  echo '</pre>';
+
+curl_close($ch);
+// echo $response;
+$html = new simple_html_dom();
+$html->load($response);
+
+$result=$html->find(' span[class="bookcover"] a ');
+
+foreach($result as $link)
+{
+  $link->class="imgsty";
+  $link->target="_blank";
+   $link->href="https://openlibrary.org/".$link->href ;
+    echo $link.'<br>';
+}
+
+$html->clear();
+  }
+  else
+  {
+    echo '<p class="para">Login first to view this feature</p>';
+  }
+?>
+</section>
 </body>
+<br>
+<br>
+<br>
 <hr>
-<footer>
+<footer class="footer">
+         <img src="logo1.png" alt="" width="250px" height="250px">
+        
 
-        <h2 class="end">Contact us</h2>
-        <address id="end">
-            Chaitanya Bharati Institute of Technology <br>
-            Gandipet-Hyderabad <br>
-            Telangana-500054 <br>
-            <?php
-            echo date('c');
-
-            ?>
-            <br>
-            <!-- making the image maps  -->
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="insta" height="32px" width="32px" style="padding: 0.4em;" usemap="#insta">
+         <section class="footer1">
+           <span class="title">BookStorm</span>
+           <!-- making the image maps  -->
+           <p class="footer-para">Make your PDF's as productive as a book <br><br><span class="smaller"><a class="link-block" href=" https://mail.google.com/mail/u/?authuser=bookstormofficial@gmail.com">contact us: bookstormofficial@gmail.com</a></span></p>
+           <section style="display:block;margin:1em">
+           <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="insta" height="32px" width="32px" style="padding: 0.4em;" usemap="#insta">
             <map name="insta">
                 <area shape="default" coords="" href="https://www.instagram.com/invites/contact/?i=1cl4fkd2xu4c8&utm_content=kizg5lf" alt="" target="_blank"> <!--  total shape of the image will be considered as a map-->
             </map>
@@ -306,8 +346,17 @@ else{
             <map name="git">
                 <area shape="default" coords="" href="https://github.com/chinta-sunil-varma/miniproject" alt="" target="_blank">
             </map>
-        </address>
-
+            </section>
+         </section>
+         <section class="footer1">
+          <span class="title">Quick links</span>
+          <p class="footer-para"><a href="#navi" class="link-block">Signup</a><a href="" class="link-block">Signin</a>
+        <a href=""class="link-block">Social</a></p>
+         </section>
+         <section class="footer1">
+           <span class="title">About us</span>
+           <p class="final-para">Data is reality, if you face it you can understand it. Then you can do something about it!</p>
+         </section>
 
 
 </footer>
