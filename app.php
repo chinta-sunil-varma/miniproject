@@ -63,9 +63,9 @@ if (isset($_POST['logout'])) {  // when the person clicks on logout button page 
 
             <ul id="navi">
                      <li><a href="#">Home</a> </li>
-                     <li><a   href="#" onclick="notlog()">Social</a> </li>
+                     <li><a   href="social.php" target="_blank">Library</a> </li>
                      <li><a href="signup.php" > Signup</a></li>
-                     <li><a href="#end"> About us</a></li>
+                     <li><a href="#foot"> About us</a></li>
                      <form id="formi"  action="" method="post">
                        <li><button type="submit" id="logout"  name="logout" value="1" > Log out</button></li> <!--after clicking submit action file will be executed-->
                      </form>                                                                                  <!--since the button is not input it cannot contain a value-->
@@ -279,53 +279,13 @@ else{
   echo "</section>";
 }
 ?>
-<h2 id="endhtwo">Free Books to Read!</h2>
-<p class="para"> Welcome! this is the free section of books which will be updated frequently, make sure you grab em. Atlast, the books are owned by open library archive. All the neccesarry lisences are with held with them.</p>
-<section class="scrap">
-  
-  <?php
-  if(isset($_SESSION['activstat']))
-  {
-include 'simple_html_dom.php';
 
-$ch=curl_init();
-curl_setopt($ch, option:CURLOPT_URL,value:"https://openlibrary.org/people/isidore5458/lists/OL197209L/Can_be_read_without_borrowing");
-curl_setopt($ch,option:CURLOPT_FOLLOWLOCATION,value:1);
-curl_setopt($ch,option:CURLOPT_RETURNTRANSFER, value:1);
-$response = curl_exec($ch);
-// echo '<pre>';
- 
-//  echo '</pre>';
-
-curl_close($ch);
-// echo $response;
-$html = new simple_html_dom();
-$html->load($response);
-
-$result=$html->find(' span[class="bookcover"] a ');
-
-foreach($result as $link)
-{
-  $link->class="imgsty";
-  $link->target="_blank";
-   $link->href="https://openlibrary.org/".$link->href ;
-    echo $link.'<br>';
-}
-
-$html->clear();
-  }
-  else
-  {
-    echo '<p class="para">Login first to view this feature</p>';
-  }
-?>
-</section>
 </body>
 <br>
 <br>
 <br>
 <hr>
-<footer class="footer">
+<footer class="footer" id="foot">
          <img src="logo1.png" alt="" width="250px" height="250px">
         
 
@@ -344,7 +304,7 @@ $html->clear();
             </map>
             <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="git" height="32px" width="32px" style="padding: 0.4em;" usemap="#git">
             <map name="git">
-                <area shape="default" coords="" href="https://github.com/chinta-sunil-varma/miniproject" alt="" target="_blank">
+                <area shape="default" coords="" href="https://github.com/chinta-sunil-varma/miniproject/tree/final_stable.2" alt="" target="_blank">
             </map>
             </section>
          </section>

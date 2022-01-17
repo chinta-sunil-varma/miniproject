@@ -312,18 +312,3 @@ h2::first-letter
 {
     font-size: 90%;
 }
-.scrap
-{
-    display: flex;
-    background-color: #001219;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-.imgsty
-{
-    margin: 50px;
-}
-#endhtwo
-{
-    color: yellowgreen;
-}
