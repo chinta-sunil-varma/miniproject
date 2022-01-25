@@ -24,7 +24,7 @@
         <form action="" method="post" name="hi">
         <input type="email" class="input-box" placeholder="Your Email" name="email" required>
         <input type="password" class="input-box" placeholder="Your Password" name="password" required>
-        <p id="para"><span><input type="checkbox"></span>I agree to the terms of services</p>
+        <p id="para"><span><input type="checkbox" required></span>I agree to the terms of services</p>
         <button type="submit" class="Signup-btn" name="butto">Sign in</button>
         <hr>
         <p class="or">OR</p>

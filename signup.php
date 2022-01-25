@@ -18,7 +18,7 @@
           <input type="text" class="input-box" placeholder="Your name" name="name" required>
         <input type="email" class="input-box" placeholder="Your Email" name="email" required>
         <input type="password" class="input-box" placeholder="Your Password" name="password" required>
-        <p id="para"><span><input type="checkbox"></span>I agree to the terms of services</p>
+        <p id="para"><span><input type="checkbox" required></span>I agree to the terms of services</p>
         <button type="submit" class="Signup-btn" name="butto">Sign up</button>
         </form>
         <hr>

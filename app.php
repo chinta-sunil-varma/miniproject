@@ -292,7 +292,7 @@ else{
          <section class="footer1">
            <span class="title">BookStorm</span>
            <!-- making the image maps  -->
-           <p class="footer-para">Make your PDF's as productive as a book <br><br><span class="smaller"><a class="link-block" href=" https://mail.google.com/mail/u/?authuser=bookstormofficial@gmail.com">contact us: bookstormofficial@gmail.com</a></span></p>
+           <p class="footer-para">Make your PDF's as productive as a book <br><br><span class="smaller"><a class="link-block" target="_blank" href=" https://mail.google.com/mail/u/?authuser=bookstormofficial@gmail.com">contact us: bookstormofficial@gmail.com</a></span></p>
            <section style="display:block;margin:1em">
            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="insta" height="32px" width="32px" style="padding: 0.4em;" usemap="#insta">
             <map name="insta">
@@ -304,14 +304,14 @@ else{
             </map>
             <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="git" height="32px" width="32px" style="padding: 0.4em;" usemap="#git">
             <map name="git">
-                <area shape="default" coords="" href="https://github.com/chinta-sunil-varma/miniproject/tree/final_stable.2" alt="" target="_blank">
+                <area shape="default" coords="" href="https://github.com/chinta-sunil-varma/miniproject/tree/final_stable.3" alt="" target="_blank">
             </map>
             </section>
          </section>
          <section class="footer1">
           <span class="title">Quick links</span>
-          <p class="footer-para"><a href="#navi" class="link-block">Signup</a><a href="" class="link-block">Signin</a>
-        <a href=""class="link-block">Social</a></p>
+          <p class="footer-para"><a href="signup.php" class="link-block" target="_blank">Signup</a><a href="signin.php" class="link-block" target="_blank">Signin</a>
+        <a href="social.php"class="link-block" target="_blank">Library</a></p>
          </section>
          <section class="footer1">
            <span class="title">About us</span>

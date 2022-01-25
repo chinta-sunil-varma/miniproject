@@ -6,7 +6,8 @@ function displayname(a){
     const obj=document.querySelector(".username") // this  is the flex container and justify contents is set to space between
     const span=document.createElement("span")  // creating a span element to dispaly his name
     span.style.color="white" // making the span element content to be white
-    span.innerHTML=`Welcome back <span style="color:#0a9396">${a}</span>` // making the username with distinct color to differentiate
+    span.style.fontSize='120%'
+    span.innerHTML=`Welcome back <span style="color:#00b4d8">${a}</span>` // making the username with distinct color to differentiate
     span.style.fontFamily="Arial, Helvetica, sans-serif"
     obj.appendChild(span) // appending the created span as an element to parent container username
 }

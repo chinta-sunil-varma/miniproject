@@ -55,7 +55,7 @@ $_SESSION['fileactive']=$_POST['select'];
                 <button id="downbutto" type="submit">submit</button>
             </form>
         </section>
-        <h2 style="display:inline-block">view your book marks here</h2>
+        <h2 style="display:inline-block;color:white">view your book marks here</h2>
         <section class="viewbook"></section>
         <?php
         $name=$_SESSION['username'];

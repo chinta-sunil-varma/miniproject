@@ -7,9 +7,9 @@ function addinput(){
     let ran=Math.floor((Math.random()*1000)+1)
     input.name="text"+ran
     let label =document.createElement("label")
-    
+    label.style.color='whitesmoke'
     label.innerText="enter your page no"
-    label.style.fontFamily="Montserrat"
+    label.style.fontFamily="Mohave"
     
     label.appendChild(input)
     form.appendChild(label)
@@ -24,7 +24,8 @@ function addinput(){
     let label1 =document.createElement("label")
     // let sec2 = document.createElement('section')
     label1.innerText="enter the discription"
-    label1.style.fontFamily="Montserrat"
+    label1.style.fontFamily="Mohave"
+    label1.style.color='whitesmoke'
     input1.required=true
     label1.appendChild(input1)
     form.appendChild(label1)
@@ -42,14 +43,14 @@ function showbook(a,b){ //a=page;b=discription
     para.style.color="#e5383b"
     para.style.cursor="pointer"
     para.style.textDecoration="underline"
-    para.style.fontFamily="Sans-serif"
+    para.style.fontFamily="Mohave"
     const iframeobj=document.querySelector("#iframeobj")
     const src =iframeobj.src
     para.innerText=`page ${a}`
     para.id="par"+" "+a
     const para1=document.createElement("p")
     para1.innerText=`DESCRIPTION: ${b}`
-    para1.style.fontFamily="Sans-serif"
+    para1.style.fontFamily="Mohave"
     
     viewbook.appendChild(para)
     viewbook.appendChild(para1)
